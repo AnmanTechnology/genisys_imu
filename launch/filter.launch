@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="OUTPUT_METHOD" default="screen"/>
+    <arg name="RESPAWN" default="false"/>
+
+    <!-- https://wiki.ros.org/imu_filter_madgwick -->
+    <node name="imu_filter" pkg="imu_filter_madgwick" type="imu_filter_node" output="$(arg OUTPUT_METHOD)" respawn="$(arg RESPAWN)" respawn_delay="0">
+        <!-- <param name="gain" value="0.1"/> -->
+        <!-- <param name="zeta" value="0.0"/> -->
+        <!-- <param name="mag_bias_x" value="0.0"/> -->
+        <!-- <param name="mag_bias_y" value="0.0"/> -->
+        <!-- <param name="mag_bias_z" value="0.0"/> -->
+        <!-- <param name="orientation_stddev" value="0.0"/> -->
+
+        <!-- <param name="world_frame" value=""/> -->
+        <param name="use_mag" value="false"/>
+
+        <!-- <param name="fixed_frame" value="odom"/> -->
+        <!-- <param name="publish_tf" value="false"/> -->
+        <remap from="imu/data" to="imu/data_filtered"/>
+    </node>
+
+</launch>

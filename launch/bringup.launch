@@ -3,23 +3,32 @@
 
     <arg name="OUTPUT_METHOD" default="screen"/>
     <arg name="RESPAWN" default="false"/>
-    <arg name="port" default="/dev/ttyACM0"/>
-    
-    <node name="genisys_imu" pkg="rosserial_python" type="serial_node.py"  output="$(arg OUTPUT_METHOD)" respawn="$(arg RESPAWN)" respawn_delay="0">
+    <arg name="port" default="/dev/ttyACM1"/>
+
+    <node name="genisys_imu" pkg="rosserial_python" type="serial_node.py" output="$(arg OUTPUT_METHOD)" respawn="$(arg RESPAWN)" respawn_delay="0">
         <param name="port" value="$(arg port)"/>
-        <param name="baud" value="115200"/>
-        
+        <param name="baud" value="256000"/>
+
         <param name="frame_id" type="str" value="imu_link"/>
+
+
         <param name="use_compass" type="bool" value="false"/>
-        
+
+        <!-- not provide (-1) -->
+        <!-- unknown (0) -->
+
         <!-- oritentation_stddev datasheet = 0.0025 -->
         <param name="orientation_stddev" type="double" value="-1.0"/>
         <!-- angular_velocity_stddev datasheet = 0.02 -->
-        <param name="angular_velocity_stddev" type="double" value="-1.0"/>
+        <param name="angular_velocity_stddev" type="double" value="0"/>
         <!-- linear_acceleration_stddev datasheet = 0.04 -->
-        <param name="linear_acceleration_stddev" type="double" value="-1.0"/>
+        <param name="linear_acceleration_stddev" type="double" value="0"/>
         <!-- magnetic_field_stddev datasheet = 0.0048 -->
         <param name="magnetic_field_stddev" type="double" value="-1.0"/>
+
+        <!-- <remap from="/imu/mag" to="/imu/magnetometer"/> -->
+
+        <!-- <param name="use_dmp" type="bool" value="false"/> -->
     </node>
 
 </launch>

@@ -15,6 +15,7 @@ Genisys คือโมดูล IMU 9DoF ผลิตโดย Anman ที่�
 
 
 ข้อมูลที่ส่งออกมาจะมี:	
+* Accelerometer และ Gyroscope (sensor_msgs/Imu) ~56Hz: `/imu/data_raw`
 * Orientation, Accelerometer และ Gyroscope (sensor_msgs/Imu) ~56Hz: `/imu/data`
 * Magnetometer (sensor_msgs/MagneticField) ~56Hz: `/imu/mag`
 * Euler angle (geometry_msgs/Vector3) ~56Hz: `/imu/euler`
@@ -62,7 +63,8 @@ Genisys คือโมดูล IMU 9DoF ผลิตโดย Anman ที่�
     ![](docs/imgs/launch_genisys_port.png)
 
 4) ทดสอบอ่านค่าจาก topic
-    สำหรับบอร์ด Genisys เมื่อรันแล้วจะมี topic ออกมาอยู่ 3 ตัวคือ
+    สำหรับบอร์ด Genisys เมื่อรันแล้วจะมี topic ออกมาอยู่ 4 ตัวคือ
+    * /imu/data_raw เป็นค่าของ Accel, Gyro ชนิด sensor_msgs/Imu
     * /imu/data เป็นค่าของ Orientation, Accel, Gyro ชนิด sensor_msgs/Imu
     * /imu/mag เป็นค่าของ Magnetic field ชนิด sensor_msgs/MagneticField
     * /imu/euler เป็นค่าของ Euler angle ชนิด geometry_msgs/Vector3

@@ -4,4 +4,7 @@
     <!-- RViz -->
     <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find genisys_imu)/rviz/display.rviz"/>
 
+    <!-- Static Transform Publisher -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_link" args="0 0 0 0 0 0 base_link imu_link" />
+
 </launch>
