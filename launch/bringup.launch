@@ -11,9 +11,6 @@
 
         <param name="frame_id" type="str" value="imu_link"/>
 
-
-        <param name="use_compass" type="bool" value="false"/>
-
         <!-- not provide (-1) -->
         <!-- unknown (0) -->
 
@@ -24,11 +21,9 @@
         <!-- linear_acceleration_stddev datasheet = 0.04 -->
         <param name="linear_acceleration_stddev" type="double" value="0"/>
         <!-- magnetic_field_stddev datasheet = 0.0048 -->
-        <param name="magnetic_field_stddev" type="double" value="-1.0"/>
+        <param name="magnetic_field_stddev" type="double" value="0"/>
 
         <!-- <remap from="/imu/mag" to="/imu/magnetometer"/> -->
-
-        <!-- <param name="use_dmp" type="bool" value="false"/> -->
     </node>
 
 </launch>
